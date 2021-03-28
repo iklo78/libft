@@ -13,11 +13,10 @@
 #include "libft.h"
 #include <ctype.h>
 
-
-int main() {
-
-    const char * original = "Bonjour les copains";
-    const char * new = "o";
+int main() 
+{
+    const char * original = "SYMtotoPAtotoTUESTtoto";
+    const char * new = "toto";
 
     // On duplique la chaîne de caractères initiale.
     char * copy = ft_strtrim(original, new);
