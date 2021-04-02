@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 08:37:11 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 18:14:15 by misaev           ###   ########.fr       */
+/*   Created: 2021/03/31 10:34:17 by misaev            #+#    #+#             */
+/*   Updated: 2021/03/31 18:07:24 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, const char *src, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	i = ft_strlen(s);
+	write(fd, s, i);
+	write(fd, '\n', 1);
 }

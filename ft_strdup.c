@@ -6,21 +6,21 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 15:20:38 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/26 15:38:02 by misaev           ###   ########.fr       */
+/*   Updated: 2021/03/31 18:11:16 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char * ft_strdup( const char * source )
+char	*ft_strdup(const char *source)
 {
-	size_t i;
-	char *new;
+	size_t	i;
+	char	*new;
 
 	i = 0;
-	while(source[i])
+	while (source[i])
 		i++;
-	new = malloc(sizeof(char) * i);
+	new = malloc(sizeof(char) * i + 1);
 	i = 0;
 	while (source[i])
 	{
@@ -28,6 +28,5 @@ char * ft_strdup( const char * source )
 		i++;
 	}
 	new[i] = '\0';
-	return new;
-
+	return (new);
 }

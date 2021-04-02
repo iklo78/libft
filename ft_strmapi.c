@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 08:37:11 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 18:14:15 by misaev           ###   ########.fr       */
+/*   Created: 2021/03/31 09:03:16 by misaev            #+#    #+#             */
+/*   Updated: 2021/03/31 18:16:21 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, const char *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned
+int, char))
 {
-	size_t	i;
+	unsigned int	i;
+	char			*str;
 
+	str = ft_strdup(s);
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	str[i] = '\0';
+	return (str);
 }

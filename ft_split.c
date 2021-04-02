@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/29 08:58:03 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/02 08:57:06 by misaev           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 
-size_t   taille_mot(const char *str,char sep)
+size_t   taille_mot(const char *str,char sep,int y)
 {
-    size_t    y;
     size_t    b;
-    y = 0;
     b = 0;
     if (str[y] == sep)
           y++;
@@ -45,7 +56,7 @@ char **ft_split(char const *s, char sep)
 
     while (i < lenS)
     {
-        len_mot = taille_mot(&s[len_mot], sep);
+        len_mot = taille_mot(s, sep,len_mot);
         if(len_mot == 0)
             return NULL;
         new[i] = malloc(sizeof(char) * len_mot + 1);

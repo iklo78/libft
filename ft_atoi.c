@@ -6,39 +6,36 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:53:40 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/24 11:44:29 by misaev           ###   ########.fr       */
+/*   Updated: 2021/03/31 12:17:37 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int f;
-	int s;
+	int	i;
+	int	nbr;
+	int	n;
 
-	s = 0;
-	f = 0;
+	n = 0;
 	i = 0;
-	while(nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' ')
+	nbr = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
 		i++;
-	if(nptr[i + 1] < '0' && nptr[i + 1] > '9')
-		return 0;
-	else if (nptr[i] == '-' || nptr[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
-		s++;
+		if (str[i] == '-')
+			n++;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
-			f = (f * 10) + nptr[i] - '0';
-			i++;
+		nbr = (nbr * 10) + str[i] - '0';
+		i++;
 	}
-
-	if(nptr[i] < '0' && nptr[i] > '9')
-		return 0;
-	if(s == 1)
-		f = f * -1;
-	return f;
+	if (n % 2 == 0)
+		return (nbr * 1);
+	return (nbr * -1);
 }

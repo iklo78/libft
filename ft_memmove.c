@@ -6,21 +6,21 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:50:43 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/25 17:50:25 by misaev           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:59:53 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char *dst;
-	unsigned char *sour;
-    size_t i;
+	unsigned char	*dst;
+	unsigned char	*sour;
+	size_t			i;
 
-    i = 0;
-    dst = (unsigned char *) dest;
-    sour = (unsigned char *) src;
+	i = 0;
+	dst = (unsigned char *) dest;
+	sour = (unsigned char *) src;
 	if (dst > sour)
 	{
 		while (i < n)
@@ -34,5 +34,5 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 		dst[i] = sour[i];
 		i++;
 	}
-    return dst;
+	return (dst);
 }
