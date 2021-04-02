@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 12:29:55 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/01 14:47:53 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/02 16:32:05 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	ft_putnbr(int nb)
 {
-	long int	nbr;
+	size_t	nbr;
 
 	nbr = nb;
 	if (nbr < 0)
@@ -34,7 +34,7 @@ char	ft_putnbr(int nb)
 
 int	coutInt(int c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (c < 0)
@@ -52,9 +52,9 @@ int	coutInt(int c)
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		p;
-	char	*new;
+	size_t		i;
+	size_t		p;
+	char		*new;
 
 	i = coutInt(n);
 	p = 0;

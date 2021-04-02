@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:46:57 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 18:09:18 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/02 16:18:50 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int	nbr;
+	size_t	nbr;
 
 	nbr = n;
 	if (nbr < 0)

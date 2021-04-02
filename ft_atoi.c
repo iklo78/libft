@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:53:40 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 12:17:37 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/02 16:17:48 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	nbr;
-	int	n;
+	size_t	i;
+	size_t	nbr;
+	size_t	n;
 
 	n = 0;
 	i = 0;
