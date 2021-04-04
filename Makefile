@@ -38,8 +38,8 @@ all: $(NAME)
 %.o : %.c
 	$(CC) -o $@ -c $<
 
-$(NAME) : $(OBJ)
-	$(CC) -o $@ $^
+$(NAME): $(OBJ)
+	$(AR) -rcs $(NAME) $?
 
 clean:
 	rm -rf $(OBJ)
