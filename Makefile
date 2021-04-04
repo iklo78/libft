@@ -1,4 +1,4 @@
-NAME=libft.a
+NAME=libft
 
 CC =gcc -Wall -Wextra -Werror 
 
