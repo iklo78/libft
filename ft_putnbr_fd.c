@@ -15,18 +15,22 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	size_t	nbr;
+	size_t	i;
+	size_t	b;
 
+	i = 0;
+	b = 9;
 	nbr = n;
-	if (nbr < 0)
+	if (nbr < i)
 	{
 		ft_putchar_fd('-', fd);
 		nbr = nbr * -1;
 	}
-	if (nbr > 9)
+	if (nbr > b)
 	{
 		ft_putnbr_fd(nbr / 10, fd);
 		ft_putchar_fd(nbr % 10 + '0', fd);
 	}
-	if (nbr <= 9)
+	if (nbr <= b)
 		ft_putchar_fd(nbr + '0', fd);
 }

@@ -15,9 +15,11 @@
 char	ft_putnbr(int nb)
 {
 	size_t	nbr;
+	size_t	i;
 
+	i = 0;
 	nbr = nb;
-	if (nbr < 0)
+	if (nbr < i)
 	{
 		return ('-');
 		nbr = nbr * -1;
