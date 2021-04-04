@@ -1,5 +1,7 @@
 NAME=libft.a
 
+CC =gcc -Wall -Wextra -Werror 
+
 SRC = 	ft_atoi.c \ 
 		ft_bzero.c \ 
 		ft_calloc.c \ 
@@ -28,8 +30,6 @@ SRC = 	ft_atoi.c \
 		ft_toupper.c \ 
 		ft_strjoin.c \ 
 		ft_strtrim.c \
-
-CC =gcc -Wall -Wextra -Werror 
 
 OBJ = $(SRC:.c=.o)
 
