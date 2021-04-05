@@ -6,11 +6,19 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:53:40 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 16:17:48 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/05 14:27:53 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isspace(char str)
+{
+	if (str == '\t' || str == '\n' || str == '\r'
+		|| str == '\v' || str == '\f' || str == ' ')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -21,12 +29,13 @@ int	ft_atoi(const char *str)
 	n = 0;
 	i = 0;
 	nbr = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+	while (ft_isspace(str[i]) == 1)
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
+		if (str[i + 1] == '-' || str[i + 1] == '+')
+			return (0);
+		else if (str[i] == '-')
 			n++;
 		i++;
 	}
