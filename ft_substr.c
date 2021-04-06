@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 15:40:01 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/05 14:48:24 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 10:43:38 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	b = start;
-	if (start > len)
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
 		return (ft_strdup(""));
 	while (s[b] && i < len)
 	{
 		b++;
 		i++;
 	}
-	new = malloc(sizeof(char) * i);
+	new = ft_calloc(sizeof(*new),i + 1);
 	if (!new)
 		return (NULL);
 	i = 0;
