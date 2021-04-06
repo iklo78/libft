@@ -6,13 +6,13 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:11:32 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/06 11:16:28 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 14:36:29 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_putnbr(int nb)
+static char	ft_putnbr(int nb)
 {
 	int	nbr;
 	int	i;
@@ -29,7 +29,7 @@ char	ft_putnbr(int nb)
 	return (0);
 }
 
-int	len_nbr(int c)
+static int	len_nbr(int c)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ int	len_nbr(int c)
 	return (i);
 }
 
-void	filnewchar(int nbr, char *new, int i)
+static void	filnewchar(int nbr, char *new, int i)
 {
 	while (nbr > 0)
 	{

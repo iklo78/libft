@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:19:03 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/06 14:15:51 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 14:36:58 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*ft_strncpy(char *dest, char *src, size_t n)
 	return (dest);
 }
 
-size_t	nbr_word(const char *s, char sep)
+static size_t	nbr_word(const char *s, char sep)
 {
 	size_t	i;
 	size_t	len;
@@ -50,7 +50,7 @@ size_t	nbr_word(const char *s, char sep)
 	return (len + 1);
 }
 
-char	**Cool(const char *s, char sep)
+static char	**Cool(const char *s, char sep)
 {
 	size_t	i;
 	size_t	len_mot;
