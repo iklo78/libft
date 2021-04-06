@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:50:43 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 17:59:53 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 09:20:21 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	dst = (unsigned char *) dest;
 	sour = (unsigned char *) src;
+	if (!dest && !src)
+		return (NULL);
 	if (dst > sour)
 	{
 		while (i < n)

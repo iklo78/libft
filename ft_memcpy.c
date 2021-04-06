@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 08:34:33 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 17:58:27 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 09:19:25 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	sour = (unsigned char *)src;
 	dst = (unsigned char *)dest;
+	if (!dest && !src)
+		return (NULL);
 	while (n > 0)
 	{
 		*dst++ = *sour++;

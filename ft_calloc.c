@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 09:19:47 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 12:23:10 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 11:10:27 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@ void	*ft_calloc (size_t num, size_t size)
 {
 	char	*coco;
 	size_t	i;
+	size_t	total;
 
-	i = 0;
-	coco = malloc(num * size);
+	total = num * size;
+	coco = malloc(total);
 	if (!coco)
-		return (0);
-	while (i < size)
+		return (NULL);
+	i = 0;
+	while (total--)
 	{
 		coco[i] = 0;
 		i++;
 	}
-	return (coco);
+	return ((void *)coco);
 }
