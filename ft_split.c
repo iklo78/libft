@@ -5,53 +5,77 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 15:23:00 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 15:35:21 by misaev           ###   ########.fr       */
+/*   Created: 2021/04/06 11:19:03 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/06 12:33:35 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	nbword(const char *s, char c)
+static char		*ft_strncpy(char *dest, char *src, size_t n)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	while (s[i] != '\0')
+	while (src[i] != '\0' && i < n)
 	{
-		if (s[i] == c)
-			j++;
+		dest[i] = src[i];
+		++i;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
 		i++;
 	}
-	return (j + 1);
+	return (dest);
 }
 
-char	**ft_split(const char *s, char c)
+size_t	nbr_word(const char *s, char sep)
 {
-	size_t	i;
-	size_t	mot;
-	size_t	tab;
-	char	**new;
+	size_t i;
+	size_t len;
 
-	tab = 0;
-	new = ft_calloc(sizeof(*new), nbword(s, c) + 1);
 	i = 0;
-	while (s[i])
-	{
-		mot = 0;
-		if (s[i] != c)
+	len = 0;
+	while(s[i] != '\0')
 		{
-			while (s[i + mot] != c && s[i + mot] != '\0')
-				mot++;
-			new[tab] = ft_calloc(sizeof(char *), (mot + 1));
-			ft_strlcpy(new[tab], (char *)&s[i], mot);
-			tab++;
-			i = i + mot - 1;
+			if(s[i] == sep)
+				len++;
+			i++;
 		}
-		i++;
-	}
-	new[tab] = 0;
-	return (new);
+	return (len + 1);
+}
+
+char	**ft_split(const char *s, char sep)
+{
+	size_t i;
+	size_t len_mot;
+	size_t m_dest;
+	char **dest;
+
+	if (!s)
+		return (NULL);
+	m_dest = 0;
+	dest = ft_calloc(sizeof(char **), nbr_word(s, sep) + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while(s[i])
+	{
+		len_mot = 0;
+		if(s[i] != sep)
+        {
+            while(s[i + len_mot] != sep && s[i + len_mot] != '\0')
+                len_mot++;
+            dest[m_dest] = ft_calloc(sizeof(char), (len_mot + 1));
+			if (!dest)
+				return (NULL);
+            ft_strncpy(dest[m_dest], (char *)&s[i], len_mot);
+            m_dest++;
+            i = i + len_mot - 1;
+        }
+        i++;
+    }
+    dest[m_dest] = 0;
+    return (dest);
 }
