@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:34:17 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 16:18:46 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 11:18:34 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
 
-	i = ft_strlen(s);
-	write(fd, s, i);
-	write(fd, "\n", 1);
+	if (s)
+	{
+		i = ft_strlen(s);
+		write(fd, s, i);
+		write(fd, "\n", 1);
+	}
 }

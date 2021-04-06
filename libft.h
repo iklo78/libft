@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 16:24:54 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 16:31:23 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 10:07:39 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_tolower(int chr);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *frst, const char *sec, size_t len);
-char	*ft_strlcpy(char *dest, const char *src, size_t n);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 int		ft_atoi(const char *nptr);
@@ -44,7 +44,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_memcmp( const void *pointer1, const void *pointer2, size_t size );
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_memcmp( const void *pter1, const void *pter2, size_t size );
 void	*ft_calloc (size_t num, size_t size);
 char	*ft_strdup( const char *source );
 char	*ft_substr(char const *s, unsigned int start, size_t len);

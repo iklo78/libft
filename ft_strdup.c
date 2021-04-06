@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 15:20:38 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 18:11:16 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 10:10:10 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strdup(const char *source)
 	while (source[i])
 		i++;
 	new = malloc(sizeof(char) * i + 1);
+	if (!new)
+		return (NULL);
 	i = 0;
 	while (source[i])
 	{

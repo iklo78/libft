@@ -1,6 +1,6 @@
 NAME = libft.a
 
-CFLAGS += -Wall -Wextra -Werror 
+CFLAGS += -Wall -Wextra -Werror
 
 SRCS = ft_memset.c \
 	   ft_bzero.c \
@@ -9,6 +9,10 @@ SRCS = ft_memset.c \
 	   ft_memmove.c \
 	   ft_memchr.c \
 	   ft_memcmp.c \
+	   ft_strlcpy.c \
+	   ft_calloc.c \
+	   ft_substr.c \
+	   ft_split.c \
 	   ft_strlen.c \
 	   ft_strdup.c \
 	   ft_strlcat.c \
@@ -32,7 +36,6 @@ SRCS = ft_memset.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
-	
 
 OBJS = $(SRCS:.c=.o)
 
@@ -41,7 +44,7 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) -rcs $(NAME) $?
+	ar -rcs $(NAME) $?
 
 clean:
 	$(RM) $(OBJS)

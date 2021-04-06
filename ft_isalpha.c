@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 09:55:10 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/22 15:24:12 by misaev           ###   ########.fr       */
+/*   Created: 2021/04/05 11:07:01 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/05 11:07:07 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int chr)
+int	ft_isalpha(int c)
 {
-	if ((chr >= 65 && chr <= 90) || (chr >= 65 && chr <= 122))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

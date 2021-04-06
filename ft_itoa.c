@@ -5,85 +5,85 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 12:29:55 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/05 18:34:37 by misaev           ###   ########.fr       */
+/*   Created: 2021/04/06 11:11:32 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/06 11:16:28 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    ft_putnbr(long long int nb)
+char	ft_putnbr(int nb)
 {
-    size_t    nbr;
-    size_t    i;
+	int	nbr;
+	int	i;
 
-    i = 0;
-    nbr = nb;
-    if (nbr < i)
-    {
-        return ('-');
-        nbr = nbr * -1;
-    }
-    if (nbr > 9)
-    {
-        ft_putnbr(nbr / 10);
-        return (nbr % 10 + '0');
-    }
-    if (nbr <= 9)
-        return (nbr + '0');
-    return (0);
+	i = 0;
+	nbr = nb;
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10);
+		return (nbr % 10 + '0');
+	}
+	if (nbr <= 9)
+		return (nbr + '0');
+	return (0);
 }
 
-int    coutInt(long long int c)
+int	len_nbr(int c)
 {
-    size_t    i;
+	int	i;
 
-    i = 0;
-    if (c == 0)
-      return (i + 1);
-    if (c < 0)
-    {
-        c = c * -1;
-        i++;
-    }
-    while (c > 0)
-    {
-        c = c / 10;
-        i++;
-    }
-    return (i);
+	i = 0;
+	if (c == 0)
+		return (i + 1);
+	if (c < 0)
+	{
+		c = c * -1;
+		i++;
+	}
+	while (c > 0)
+	{
+		c = c / 10;
+		i++;
+	}
+	return (i);
 }
-void filnewchar(long long int m ,char *new, int i)
-{
-   while (m > 0 && m != 0)
-    {
-        new[i] = ft_putnbr(m);
-        m = m / 10;
-        i--;
-    }
-}
-char    *ft_itoa(int n)
-{
-    int        i;
-    size_t        p;
-    char        *new;
-    long long int m;
 
-    m = n;
-    i = coutInt(m);
-    p = 0;
-    new = malloc(sizeof(*new) * i + 1);
-    if (m < 0)
-    {
-        p++;
-        m = m * -1;
-    }
-    new[i] = '\0';
-    i--;
-    if (m == 0)
-      new[i] = '0';
-    filnewchar(m , new, i);
-    if (p == 1)
-        new[i] = '-';
-    return (new);
+void	filnewchar(int nbr, char *new, int i)
+{
+	while (nbr > 0)
+	{
+		new[i] = ft_putnbr(nbr);
+		nbr = nbr / 10;
+		i--;
+	}
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	int		p;
+	int		nbr;
+	char	*new;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	nbr = n;
+	i = len_nbr(nbr);
+	p = 0;
+	new = malloc(sizeof(char) * i + 1);
+	if (!new)
+		return (NULL);
+	if (nbr < 0)
+	{
+		new[0] = '-';
+		nbr = nbr * -1;
+		p++;
+	}
+	new[i] = '\0';
+	i--;
+	if (nbr == 0)
+		new[i] = '0';
+	filnewchar(nbr, new, i);
+	return (new);
 }

@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 11:10:26 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/22 15:24:04 by misaev           ###   ########.fr       */
+/*   Created: 2021/03/23 08:56:13 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/05 11:06:52 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int chr)
+int	ft_isalnum(int c)
 {
-	if ((chr >= 65 && chr <= 90) || (chr >= 65 && chr <= 122))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
-	else if (chr >= 48 && chr <= 57)
+	else if (c >= 48 && c <= 57)
 		return (1);
 	else
 		return (0);

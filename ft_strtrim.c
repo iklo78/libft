@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 15:35:52 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 16:16:38 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 14:21:06 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	char	*dest;
 
+	if (! s1 || ! set)
+		return (NULL);
 	start = 0;
 	while (s1[start] && find_c(s1[start], set))
 		start++;

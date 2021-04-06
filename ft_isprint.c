@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 11:31:39 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/22 15:24:24 by misaev           ###   ########.fr       */
+/*   Created: 2021/04/05 11:02:52 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/05 11:02:57 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int chr)
+int	ft_isprint(int c)
 {
-	if (chr >= 32 && chr <= 127)
+	if (c >= 32 && c <= 126)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

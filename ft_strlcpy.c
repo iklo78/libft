@@ -5,27 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 08:37:11 by misaev            #+#    #+#             */
-/*   Updated: 2021/03/31 18:14:15 by misaev           ###   ########.fr       */
+/*   Created: 2021/04/05 11:08:05 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/06 14:20:01 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	b;
 
+	b = 0;
 	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
+	if (!dest)
+		return (0);
+	while (src[i])
 		i++;
-	}
-	while (i < n)
+	if (!size)
+		return (i);
+	while (src[b] && b < size - 1)
 	{
-		dest[i] = '\0';
-		i++;
+		dest[b] = src[b];
+		b++;
 	}
-	return (dest);
+	dest[b] = '\0';
+	return (i);
 }

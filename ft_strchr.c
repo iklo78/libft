@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 12:34:32 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 16:19:01 by misaev           ###   ########.fr       */
+/*   Created: 2021/04/05 11:07:46 by misaev            #+#    #+#             */
+/*   Updated: 2021/04/05 11:07:50 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
+		if (str[i] == (char)c)
+			return ((char *)str + i);
 		i++;
 	}
+	if ((char)c == '\0')
+		return ((char *)str + i);
 	return (NULL);
 }

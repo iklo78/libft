@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:29:03 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/02 16:18:54 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/06 11:18:45 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
 
-	i = ft_strlen(s);
-	write(fd, s, i);
+	if (s)
+	{
+		i = ft_strlen(s);
+		write(fd, s, i);
+	}
 }
