@@ -9,10 +9,6 @@ SRCS = ft_memset.c \
 	   ft_memmove.c \
 	   ft_memchr.c \
 	   ft_memcmp.c \
-	   ft_strlcpy.c \
-	   ft_calloc.c \
-	   ft_substr.c \
-	   ft_split.c \
 	   ft_strlen.c \
 	   ft_strdup.c \
 	   ft_strlcat.c \
@@ -21,6 +17,8 @@ SRCS = ft_memset.c \
 	   ft_strnstr.c \
 	   ft_strncmp.c \
 	   ft_atoi.c \
+	   ft_strlcpy.c \
+	   ft_calloc.c \
 	   ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
@@ -29,6 +27,8 @@ SRCS = ft_memset.c \
 	   ft_toupper.c \
 	   ft_tolower.c \
 	   ft_strmapi.c \
+	   ft_split.c \
+	   ft_substr.c \
 	   ft_strjoin.c \
 	   ft_strtrim.c \
 	   ft_itoa.c \
@@ -37,17 +37,32 @@ SRCS = ft_memset.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
 
+SRC_bonus = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+
 OBJS = $(SRCS:.c=.o)
+
+OBJS_B = $(SRC_bonus:.c=.o)
 
 RM = rm -f
 
 all: $(NAME)
 
+bonus : $(OBJS_B)
+		ar -rs $(NAME) $^
+
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $?
+	$(AR) -rcs $(NAME) $?
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS_B)
 
 fclean: clean
 	$(RM) $(NAME)
