@@ -6,7 +6,7 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:19:03 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/06 14:36:58 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/08 12:19:08 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,16 @@ static size_t	nbr_word(const char *s, char sep)
 	len = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == sep)
+		if (s[i] != sep && s[i] != '\0')
+		{
+			while (s[i] != sep)
+				i++;
+			i++;
 			len++;
+		}
 		i++;
 	}
-	return (len + 1);
+	return (len);
 }
 
 static char	**Cool(const char *s, char sep)
