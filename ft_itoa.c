@@ -15,9 +15,7 @@
 static char	ft_putnbr(int nb)
 {
 	int	nbr;
-	int	i;
 
-	i = 0;
 	nbr = nb;
 	if (nbr > 9)
 	{
