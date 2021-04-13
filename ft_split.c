@@ -6,87 +6,78 @@
 /*   By: misaev <misaev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:19:03 by misaev            #+#    #+#             */
-/*   Updated: 2021/04/08 12:19:08 by misaev           ###   ########.fr       */
+/*   Updated: 2021/04/12 09:23:03 by misaev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strncpy(char *dest, char *src, size_t n)
+static char	*ft_strndup(char const *s, size_t n)
 {
+	char	*dest;
 	size_t	i;
 
 	i = 0;
-	if (!dest || !src)
+	dest = (char *)malloc(n + 1);
+	if (dest == NULL)
 		return (NULL);
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
-		++i;
-	}
 	while (i < n)
 	{
-		dest[i] = '\0';
+		dest[i] = s[i];
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
 
-static size_t	nbr_word(const char *s, char sep)
+static int	ft_countwords(char *str, char set)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
+	int	len;
 
-	if (!s)
-		return (0);
-	i = 0;
 	len = 0;
-	while (s[i] != '\0')
+	i = 0;
+	if (ft_strlen(str) == 0)
+		return (0);
+	if (str[0] != set)
+		len++;
+	while (str[i])
 	{
-		if (s[i] != sep && s[i] != '\0')
+		if (str[i] == set)
 		{
-			while (s[i] != sep)
-				i++;
-			i++;
-			len++;
+			if (str[i] == set && (str[i + 1] != set && str[i + 1] != '\0'))
+				len++;
 		}
 		i++;
 	}
 	return (len);
 }
 
-static char	**Cool(const char *s, char sep)
+char	**ft_split(char const *str, char set)
 {
-	size_t	i;
-	size_t	len_mot;
-	size_t	m_dest;
-	char	**dest;
+	char	**tab;
+	int		i;
+	int		m_tab;
+	int		len_word;
 
-	dest = ft_calloc(sizeof(char **), nbr_word(s, sep) + 1);
-	if (!dest)
-		return (NULL);
-	m_dest = 0;
+	m_tab = 0;
 	i = -1;
-	while (s[++i])
+	if (!str)
+		return (NULL);
+	tab = ft_calloc(sizeof(tab), (ft_countwords((char *)str, set) + 1));
+	if (!tab)
+		return (NULL);
+	while (str[++i])
 	{
-		len_mot = 0;
-		if (s[i] != sep)
+		len_word = 0;
+		if (str[i] != set)
 		{
-			while (s[i + len_mot] != sep && s[i + len_mot] != '\0')
-				len_mot++;
-			dest[m_dest] = ft_calloc(sizeof(char), (len_mot + 1));
-			ft_strncpy(dest[m_dest], (char *)&s[i], len_mot);
-			m_dest++;
-			i = i + len_mot - 1;
+			while (str[i + len_word] != set && str[i + len_word] != '\0')
+				len_word++;
+			tab[m_tab++] = ft_strndup(str + i, len_word);
+			i = i + len_word - 1;
 		}
 	}
-	dest[m_dest] = 0;
-	return (dest);
-}
-
-char	**ft_split(const char *s, char sep)
-{
-	if (!s)
-		return (NULL);
-	return (Cool(s, sep));
+	tab[m_tab] = 0;
+	return (tab);
 }
